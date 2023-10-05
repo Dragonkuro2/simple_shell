@@ -2,24 +2,34 @@
 /**
  * main - Entry to simple shell project main func
  * @argc: counter
+ * @argv: arguments
  * Return: 0 Alaways (success)
  */
 int main(int argc, char **argv)
 {
-	char *line = NULL; /* **cmd = NULL;*/
+	char *line = NULL, **cmd = NULL;
+	int i;
 	(void) argv;
 	(void) argc;
-
 	while (1)
 	{
 		line = get_linefunc();
 		if (line == NULL)
 		{
-			write(STDOUT_FILENO, "\n", 1);
+			if (isatty(STDIN_FILENO))
+				write(STDOUT_FILENO, "\n", 1);
 			return (0);
 		}
-		printf("%s", line);
 
-		/*cmd = splitter(line);*/
+		cmd = splitter(line);
+		if (!cmd)
+			continue;
+
+		for (i = 0; cmd[i]; i++)
+		{
+			printf("%s\n", cmd[i]);
+			free(cmd[i]);
+		}
+		free(cmd);
 	}
 }

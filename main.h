@@ -11,5 +11,7 @@
 
 
 char *get_linefunc(void);
+char **splitter(char *line);
+
 
 #endif
