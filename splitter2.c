@@ -28,10 +28,10 @@ char **splitter(char *line)
 		if (!splits[counter - 1])
 		{
 			for (i = 0; i < counter - 1; i++)
-                                free(splits[i]);
-                        free(splits);
-                        return (NULL);
-                }
+				free(splits[i]);
+			free(splits);
+			return (NULL);
+		}
 		split = strtok(NULL, " \n\t");
 	}
 	return (splits);
