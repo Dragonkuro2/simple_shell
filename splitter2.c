@@ -4,7 +4,7 @@
  * @line : string to split
  * Return: the splited string
  */
-char **splitter(char *line)
+char **splitter2(char *line)
 {
 	char *split, **splits = NULL;
 	int counter = 0, i = 0;

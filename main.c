@@ -8,8 +8,7 @@
 int main(int argc, char **argv)
 {
 	char *line = NULL, **cmd = NULL;
-	int i;
-	(void) argv;
+	int status = 0;
 	(void) argc;
 	while (1)
 	{
@@ -18,18 +17,16 @@ int main(int argc, char **argv)
 		{
 			if (isatty(STDIN_FILENO))
 				write(STDOUT_FILENO, "\n", 1);
-			return (0);
+
+			return (status);
 		}
 
 		cmd = splitter(line);
 		if (!cmd)
 			continue;
 
-		for (i = 0; cmd[i]; i++)
-		{
-			printf("%s\n", cmd[i]);
-			free(cmd[i]);
-		}
-		free(cmd);
+        	status = _execute(cmd, argv);
+		
 	}
+
 }
