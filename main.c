@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 		if (!cmd)
 			continue;
 
-        	status = _execute(cmd, argv);
+        	status = _execute(cmd);
 		
 	}
 
