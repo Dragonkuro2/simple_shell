@@ -24,7 +24,13 @@ int main(int argc, char **argv)
 		if (!cmd)
 			continue;
 
+<<<<<<< HEAD
 		status = _execute(cmd, argv);
+=======
+        	status = _execute(cmd);
+		
+	}
+>>>>>>> 9536978b823957e9ca7e2ff4dd362cdb378e5f57
 
 	}
 }
