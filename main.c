@@ -17,7 +17,6 @@ int main(int argc, char **argv)
 		{
 			if (isatty(STDIN_FILENO))
 				write(STDOUT_FILENO, "\n", 1);
-
 			return (status);
 		}
 
@@ -25,8 +24,7 @@ int main(int argc, char **argv)
 		if (!cmd)
 			continue;
 
-        	status = _execute(cmd, argv);
-		
-	}
+		status = _execute(cmd, argv);
 
+	}
 }

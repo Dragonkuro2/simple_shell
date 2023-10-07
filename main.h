@@ -15,11 +15,9 @@ extern char **environ;
 
 char *get_linefunc(void);
 char **splitter(char *line);
-<<<<<<< HEAD
 int _execute(char **cmd, char **argv);
 void freearrays(char **array);
 
-=======
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 char *_strncpy(char *dest, char *src, int n);
@@ -34,6 +32,5 @@ int _atoi(char *s);
 int _strlen(char *s);
 void _puts(char *str);
 int _putchar(char c);
->>>>>>> 547cc92adf5793f02502f806447cf05df9061847
 
 #endif
