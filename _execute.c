@@ -1,6 +1,10 @@
 #include "main.h"
-
-int _execute(char **cmd)
+/**
+ * _execute2 - executes the command written
+ * @cmd: the command to be executed
+ * Return: Return value
+ */
+int _execute2(char **cmd, char **argv)
 {
 	pid_t child_pid;
 	int status;
@@ -9,13 +13,15 @@ int _execute(char **cmd)
 	if (child_pid == -1)
 	{
 		perror("fork");
+		freearrays(cmd);
 		exit(EXIT_FAILURE);
 	}
 	if (child_pid == 0)
 	{
 		if (execvp(cmd[0], cmd) == -1)
 		{
-			perror("execvp");
+			perror(argv[0]);
+			freearrays(cmd);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -24,6 +30,7 @@ int _execute(char **cmd)
 		if (wait(&status) == -1)
 		{
 			perror("wait");
+			freearrays(cmd);
 			exit(EXIT_FAILURE);
 		}
 	}

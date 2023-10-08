@@ -1,20 +1,29 @@
 #include "main.h"
-
 /**
- * _memcpy -  this function is similar to the function memcpy
- * @dest: the destination array
- * @src: te sorce file
- * @n: the number of time we want to copy
- * Return: it return the new value of dest
+ * _strdup - duplicate a string
+ * @str: the string to be duplicated
+ * Return: the copy
  */
-
-char *_memcpy(char *dest, char *src, unsigned int n)
+char *_strdup(char *str)
 {
-	size_t i;
+	char *copy;
+	int i, length = 0;
 
-	for (i = 0; i < n; i++)
-		dest[i] = src[i];
-	return (dest);
+	if (str == NULL)
+		return (NULL);
+
+	while (str[length] != '\0')
+		length++;
+
+	copy = (char *)malloc((sizeof(char) * length) + 1);
+	if (copy == NULL)
+		return (NULL);
+
+	for (i = 0; i < length; i++)
+		copy[i] = str[i];
+	copy[length] = '\0';
+
+	return (copy);
 }
 
 /**

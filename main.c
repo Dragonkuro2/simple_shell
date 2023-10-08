@@ -10,6 +10,7 @@ int main(int argc, char **argv)
 	char *line = NULL, **cmd = NULL;
 	int status = 0;
 	(void) argc;
+
 	while (1)
 	{
 		line = get_linefunc();
@@ -20,17 +21,13 @@ int main(int argc, char **argv)
 			return (status);
 		}
 
-		cmd = splitter(line);
+		cmd = splitter2(line);
 		if (!cmd)
 			continue;
 
-<<<<<<< HEAD
-		status = _execute(cmd, argv);
-=======
-        	status = _execute(cmd);
+		/*status = _execute(cmd, argv);*/
+        	status = _execute2(cmd, argv);
 		
 	}
->>>>>>> 9536978b823957e9ca7e2ff4dd362cdb378e5f57
 
-	}
 }
