@@ -15,7 +15,7 @@ extern char **environ;
 
 char *get_linefunc(void);
 char **splitter(char *line);
-int _execute(char **cmd, char **argv);
+int _execute(char **cmd, char **argv, int indx);
 void freearrays(char **array);
 int _execute2(char **cmd, char **argv, int indx);
 char **splitter2(char *line);

@@ -5,7 +5,7 @@
  * @argv: array of string
  * Return: return value
  */
-int _execute(char **cmd, char **argv)
+int _execute(char **cmd, char **argv, int indx)
 {
 	pid_t child;
 	int status;
@@ -15,7 +15,7 @@ int _execute(char **cmd, char **argv)
 	{
 		if (execve(cmd[0], cmd, environ) == -1)
 		{
-			perror(argv[0]);
+			printerro(argv[0], cmd[0], indx);
 			freearrays(cmd);
 			exit (0);
 		}
