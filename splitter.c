@@ -12,30 +12,35 @@ char **splitter(char *line)
 
 	if (!line)
 		return (NULL);
-	copy = strdup(line);
-	split = strtok(copy, " \t");
+	copy = _strdup(line);
+	split = strtok(copy, " \t\n");
 
 	if (split == NULL)
 	{
-		free(copy);
-		free(line);
+		free(line), line = NULL;
+		free(copy), copy = NULL;
 		return (NULL);
 	}
 
 	while (split)
 	{
 		counter++;
-		split = strtok(NULL, " \t");
+		split = strtok(NULL, " \t\n");
 	}
-	free(copy);
+	free(copy) , copy = NULL;
 
 	cmd = malloc(sizeof(char *) * (counter + 1));
+	if (!cmd)
+	{
+		free(line);
+		return (NULL);
+	}
 
-	split = strtok(line, " \t");
+	split = strtok(line, " \t\n");
 	while (split)
 	{
 		cmd[i] = strdup(split);
-		split = strtok(NULL, " \t");
+		split = strtok(NULL, " \t\n");
 		i++;
 	}
 	free(line);

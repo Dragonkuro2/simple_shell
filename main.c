@@ -22,12 +22,12 @@ int main(int argc, char **argv)
 		}
 		indx++;
 
-		cmd = splitter2(line);
+		cmd = splitter(line);
 		if (!cmd)
 			continue;
 
-		/*status = _execute(cmd, argv);*/
-        	status = _execute2(cmd, argv, indx);
+		status = _execute(cmd, argv);
+        	/*status = _execute2(cmd, argv, indx);*/
 		
 	}
 
