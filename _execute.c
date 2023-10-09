@@ -4,7 +4,7 @@
  * @cmd: the command to be executed
  * Return: Return value
  */
-int _execute2(char **cmd, char **argv)
+int _execute2(char **cmd, char **argv, int indx)
 {
 	pid_t child_pid;
 	int status;
@@ -20,7 +20,7 @@ int _execute2(char **cmd, char **argv)
 	{
 		if (execvp(cmd[0], cmd) == -1)
 		{
-			perror(argv[0]);
+			printerro(argv[0],cmd[0],indx);
 			freearrays(cmd);
 			exit(EXIT_FAILURE);
 		}

@@ -1,24 +1,29 @@
 #include "main.h"
 
 /**
- * _atoi - this function turn the charchters to integrs
- * @s: this input carachter
+ * _itoa - this function turn integers to characters
+ * @n: this input int
  * Return: it return the integrs
  */
-int _atoi(char *s)
+char *_itoa(int n)
 {
-	unsigned int num = 0;
-	int sign = 1;
+	char buff[20];
+	int i = 0;
 
-	do {
-		if (*s == '-')
-			sign *= -1;
-		else if (*s >= '0' && *s <= '9')
-			num = num * 10 + (*s - '0');
-		else if (num > 0)
-			break;
-	} while (*s++);
-	return (num * sign);
+	if (n == 0)
+		buff[i++] = '0';
+	else
+	{
+		while (n > 0)
+		{	buff[i++] = (n % 10) + '0';
+			n /= 10;
+		}
+	}
+
+	buff[i] = '\0';
+	reversing(buff, i);
+
+	return (_strdup(buff));
 }
 
 /**
@@ -64,4 +69,25 @@ void _puts(char *str)
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
+}
+/**
+ * reversing - function that reverses
+ * @str: string
+ * @length: length
+ */
+
+void reversing(char *str, int length)
+{
+	char tmp;
+	int s = 0;
+	int e = length - 1;
+
+	while (s < e)
+	{
+		tmp = str[s];
+		str[s] = str[e];
+		str[e] = tmp;
+		s++;
+		e--;
+	}
 }

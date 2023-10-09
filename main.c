@@ -8,7 +8,7 @@
 int main(int argc, char **argv)
 {
 	char *line = NULL, **cmd = NULL;
-	int status = 0;
+	int status = 0, indx = 0;
 	(void) argc;
 
 	while (1)
@@ -20,13 +20,14 @@ int main(int argc, char **argv)
 				write(STDOUT_FILENO, "\n", 1);
 			return (status);
 		}
+		indx++;
 
 		cmd = splitter2(line);
 		if (!cmd)
 			continue;
 
 		/*status = _execute(cmd, argv);*/
-        	status = _execute2(cmd, argv);
+        	status = _execute2(cmd, argv, indx);
 		
 	}
 

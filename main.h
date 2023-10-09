@@ -17,8 +17,9 @@ char *get_linefunc(void);
 char **splitter(char *line);
 /*int _execute(char **cmd, char **argv);*/
 void freearrays(char **array);
-int _execute2(char **cmd, char **argv);
+int _execute2(char **cmd, char **argv, int indx);
 char **splitter2(char *line);
+void printerro(char *name, char *cmd, int indx);
 
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
@@ -30,10 +31,11 @@ char *_memset(char *s, char b, unsigned int n);
 char *_strchr(char *s, char c);
 unsigned int _strspn(char *s, char *accept);
 char *_strstr(char *haystack, char *needle);
-int _atoi(char *s);
+char *_itoa(int n);
 int _strlen(char *s);
 void _puts(char *str);
 int _putchar(char c);
 char *_strdup(char *str);
+void reversing(char *str, int length);
 
 #endif
