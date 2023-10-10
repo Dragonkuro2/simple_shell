@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 #include <fcntl.h>
 #include <errno.h>
 
@@ -19,7 +20,10 @@ int _execute(char **cmd, char **argv, int indx);
 void freearrays(char **array);
 int _execute2(char **cmd, char **argv, int indx);
 char **splitter2(char *line);
+char *_getenv(char *var);
+char *_getpath(char *cmd);
 void printerro(char *name, char *cmd, int indx);
+
 
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
