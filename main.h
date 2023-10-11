@@ -23,6 +23,10 @@ char **splitter2(char *line);
 char *_getenv(char *var);
 char *_getpath(char *cmd);
 void printerro(char *name, char *cmd, int indx);
+int _builtin(char *cmd);
+void handle_builtin(char **cmd, int status);
+void exite(char **cmd, int status);
+void printenv(char **cmd, int status);
 
 
 char *_strcpy(char *dest, char *src);
