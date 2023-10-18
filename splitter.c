@@ -14,28 +14,24 @@ char **splitter(char *line)
 		return (NULL);
 	copy = _strdup(line);
 	split = strtok(copy, " \t\n");
-
 	if (split == NULL)
 	{
 		free(line), line = NULL;
 		free(copy), copy = NULL;
 		return (NULL);
 	}
-
 	while (split)
 	{
 		counter++;
 		split = strtok(NULL, " \t\n");
 	}
-	free(copy) , copy = NULL;
-
+	free(copy), copy = NULL;
 	cmd = malloc(sizeof(char *) * (counter + 1));
 	if (!cmd)
 	{
 		free(line);
 		return (NULL);
 	}
-
 	split = strtok(line, " \t\n");
 	while (split)
 	{
@@ -45,7 +41,5 @@ char **splitter(char *line)
 	}
 	free(line);
 	cmd[i] = NULL;
-
 	return (cmd);
-
 }

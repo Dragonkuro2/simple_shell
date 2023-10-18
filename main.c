@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 			handle_builtin(cmd, status);
 		else
 		status = _execute(cmd, argv, indx);
-		
+
 	}
 
 }

@@ -91,3 +91,24 @@ char *_strstr(char *haystack, char *needle)
 	}
 	return (NULL);
 }
+
+/**
+ * printerro - prints the error same as sh
+ * @name: name of the the shell
+ * @cmd: string
+ * @indx: index
+ */
+void printerro(char *name, char *cmd, int indx)
+{
+	char *index, msg[] = "not found\n";
+
+	index = _itoa(indx);
+
+	write(STDERR_FILENO, name, _strlen(name));
+	write(STDERR_FILENO, ": ", 2);
+	write(STDERR_FILENO, index, _strlen(index));
+	write(STDERR_FILENO, ": ", 2);
+	write(STDERR_FILENO, cmd, _strlen(cmd));
+	write(STDERR_FILENO, ": ", 2);
+	write(STDERR_FILENO, msg, _strlen(msg));
+}

@@ -6,9 +6,9 @@
  */
 int _builtin(char *cmd)
 {
-	char *builtins[] = {"exit" , "env", NULL};
+	char *builtins[] = {"exit", "env", NULL};
 	int i;
-	
+
 	for (i = 0; builtins[i]; i++)
 	{
 		if (_strcmp(cmd, builtins[i]) == 0)
